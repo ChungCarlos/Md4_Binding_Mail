@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Email Configuration Info</title>
+</head>
+<body>
+<h1>Email Configuration Info</h1>
+
+<table border="1">
+  <tr>
+    <th>Page Size</th>
+    <th>Spam Filter Enabled</th>
+    <th>Signature</th>
+    <th>Language</th>
+  </tr>
+  <tr th:each="config : ${mailList}">
+    <td hidden="hidden" th:text="${config.id}"></td>
+    <td th:text="${config.pageSize}"></td>
+    <td th:text="${config.enableSpamFilter} ? 'Yes' : 'No'"></td>
+    <td th:text="${config.signature}"></td>
+    <td th:text="${config.language}"></td>
+  </tr>
+</table>
+<a th:href="@{/configuration}">Back</a>
+</body>
+</html>
